@@ -1,0 +1,89 @@
+
+public class LeftRightEatCandyGame {
+	
+			// Name: Vriti Dahiya
+			// Date: May 10, 2023
+			// Purpose: To write a program to create the left-right-eat candy game.
+		
+	public static void main(String[] args) {
+		
+		//Set up number of candies per player
+	    int numberOfCandiesForPlayer1 = 3;
+        int numberOfCandiesForPlayer2 = 3;
+        int currentPlayerPlaying = 1;
+        int currentPlayerPlaying2 = 2;
+        
+        
+       //messing up on what player plays. write code to alternate between player 1 and 2//         
+        
+		do {
+			//Dice Roll
+		    int diceroll = (int)(Math.random()*6 +1);
+	        	   
+
+	        //Set up Player 1 and Player 2
+	          while (true) { //while the og candy amnt is true
+	            int currentPlayerCandies;
+	            if (currentPlayerPlaying == 1) {
+	                currentPlayerCandies = numberOfCandiesForPlayer1; //set up player 1 
+	            } 
+
+	             else {
+	                currentPlayerCandies = numberOfCandiesForPlayer2; //set up  player 2
+	            }
+	            
+	            System.out.println ("It's Player " + currentPlayerPlaying + "'s turn. You have " + currentPlayerCandies + " candies left.");
+
+	           
+	            //Start game  
+	            //****************//
+	            //Keep the game going as long as it satisfies this condition	         
+	            	
+	            	//Roll dice
+	            	System.out.println("The first number rolled is "+ diceroll); 
+
+	                switch (diceroll) { //possible cases for the number rolled
+	                
+	                // Set up cases 
+	                    case 1:
+	                        if (currentPlayerPlaying == 1) { //player 1
+	                            numberOfCandiesForPlayer2++;
+	                        }//if 
+	                         else {
+	                         numberOfCandiesForPlayer1++;
+	                        }//else
+	                        
+	                        currentPlayerCandies--;
+	                        System.out.println("You have to pass candy to the right.");
+
+	                        break;
+
+	                        case 2:
+	                        if (currentPlayerPlaying == 1) { //player 1 
+	                           numberOfCandiesForPlayer2++;
+	                        }//if 
+	                        else {
+	                            numberOfCandiesForPlayer1++;
+	                        }//else
+	                      
+	                        currentPlayerCandies--;
+	                        System.out.println("You have to pass candy to the left.");
+	                        break;
+
+	                        case 3:
+	                        currentPlayerCandies--;
+	                        System.out.println("You have to eat the candy, or put it aside.");
+	                        break;
+
+	                    default:
+	                        System.out.println("You get to keep the candy.");
+	                        break;
+	                }
+	            }//switch
+		}//do    
+		
+		while (numberOfCandiesForPlayer1>0&&numberOfCandiesForPlayer2>0);
+		
+		
+	    }//LeftRightEatCandyGame
+	}//main
